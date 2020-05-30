@@ -65,3 +65,10 @@ def add_commment(request,id):
     else:
         form = CommentForm()
         return render(request,'comments.html',{"form":form,"image":image})
+
+def comments(request,id):
+    comments = Comments.get_comments(id)
+    number = len(comments)
+
+    return render(request,'comments.html',{"comments":comments,"number"number})
+
