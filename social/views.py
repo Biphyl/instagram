@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from .forms import ImageProfileForm,ImageUploadForm,CommentForm
 from .models import Image, Comments, Profile
+from django.contrib.auth.decorators import login_required
+from vote.managers import VotableManager
 
-# Create your views here.
+votes = VotableManager()
 
 
 def home(request):
@@ -44,3 +46,22 @@ def profile_edit(request):
     else:
         form = ImageProfileForm()
         return render(request,'edit_profile.html',{"form":form})
+
+
+def add_commment(request,id):
+    current_user = request.user
+    image = Image.get_single_photo(id=id)
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        print(form)
+
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.user = current_user
+            comment.image_id = id
+            comment.save()
+        return redirect('home')
+
+    else:
+        form = CommentForm()
+        return render(request,'comments.html',{"form":form,"image":image})
