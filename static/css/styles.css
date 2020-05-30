@@ -10,3 +10,10 @@ body{
 img{
     cursor: pointer;
 }
+
+
+nav {
+    text-decoration: none;
+    padding: 9px;
+    color: black;
+}
