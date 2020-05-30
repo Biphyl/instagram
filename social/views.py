@@ -64,13 +64,13 @@ def add_commment(request,id):
 
     else:
         form = CommentForm()
-        return render(request,'comments.html',{"form":form,"image":image})
+        return render(request,'new_comment.html',{"form":form,"image":image})
 
 def comments(request,id):
     comments = Comments.get_comments(id)
     number = len(comments)
 
-    return render(request,'comments.html',{"comments":comments,"number"number})
+    return render(request,'comments.html',{"comments":comments,"number":number})
 
 @login_required(login_url='accounts/register/')
 def like_images(request,id):
@@ -84,3 +84,15 @@ def like_images(request,id):
         image.save()
 
     return redirect('home')
+
+def search_user(request):
+    if 'search_user' in request.GET and request.GET["search_user"]:
+        search_term = request.GET.get("search_user")
+        searched_user = User.objects.filter(username__icontains=search_term)
+        message = f"{search_term}"
+
+        return render(request,'search.html', {"message":message, "users":searched_user})
+
+    else:
+        message = "You have not searched for any term"
+        return render(request,'search.html',{"message":message})
