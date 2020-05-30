@@ -7,6 +7,5 @@ from .models import Image
 def home(request):
     images = Image.objects.all()
 
-    return render(request, '/index.html',{"images":images})
+    return render(request, 'index.html',{"images":images})
     
-

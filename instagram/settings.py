@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'social',
     'bootstrap3',
     'django_registration',
+    'vote'
 ]
 
 MIDDLEWARE = [
