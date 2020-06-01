@@ -4,7 +4,7 @@ from vote.models import VoteModel
  
 
 class Image(models.Model):
-    image = models.ImageField(upload_to='images')
+    image = models.ImageField(upload_to='images/')
     image_name = models.CharField(max_length=50)
     image_caption = models.CharField(max_length=50)
     likes = models.PositiveIntegerField(default=0)
@@ -53,7 +53,7 @@ class Comments(models.Model):
 
     
 class Profile(models.Model):
-    profile_photo = models.ImageField(upload_to='images')
+    profile_photo = models.ImageField(upload_to='images/',default='default.jpg')
     bio = models.CharField(max_length=500)
     user = models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)
 

@@ -21,5 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path(r'',include('social.urls')),
     path(r'accounts/', include('django_registration.backends.one_step.urls')),
-    path(r'logout/', views.LogoutView, {"next_page": '/'}),
+    path(r'logout/', views.LogoutView, {"next_page": '/'})
 ]
