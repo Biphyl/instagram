@@ -11,6 +11,6 @@ urlpatterns = [
     path(r'edit/', views.profile_edit,name='edit'),
     path(r'add_comment/(\d+)/', views.add_commment,name='add_comment'),
     path(r'comment/', views.comments,name='comments'),
-    path(r'like_image/(\d+)/', views.like_images,name='like_image'),
+    path(r'likes/(\d+)/', views.like_images,name='like_image'),
     path(r'user/',views.search_user,name='search_user')
 ]
