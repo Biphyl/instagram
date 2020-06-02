@@ -8,7 +8,7 @@ class ImageTestClass(TestCase):
     
     def setUp(self):
         
-        self.image_one = Image(image='images/lagoon.jpeg',image_name='dan', image_caption='lacasa de papel',likes=40, id=1,user_id=3)
+        self.image_one = Image(image='images/lagoon.jpeg',image_name='Lovine', image_caption='This is something natural',likes=40, id=1,user_id=3)
         
     def test_instance(self):
         Image.objects.all().delete()
@@ -65,11 +65,10 @@ class ProfileTestClass(TestCase):
         
     def test_update_method(self):
         self.profile_one.save_profile()
-        new_bio = '# thursday speaker'
+        new_bio = 'I am in Love'
         done = self.profile_one.update_bio(self.profile_one.pk,new_bio)
         self.assertEqual(done,new_bio)
         
     def tearDown(self):
         Profile.objects.all().delete()
-    
     

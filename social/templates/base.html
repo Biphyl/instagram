@@ -30,7 +30,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 {% if user.is_authenticated %}
-            <ul class="navbar-nav mr-auto">
+            <h5 class="navbar-nav mr-auto" style="list-style: none;">
                 <li class="nav-item active" style="margin: 9px;">
                     <a class="nav-link" href="/" >Home <span class="sr-only">(current)</span></a>
                 </li>
@@ -44,8 +44,8 @@
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search_user">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
-            </ul>
-            <span><img src="{{user.profile.profile_photo.url}}" alt="" style="border-radius: 50%; width:50px; height:50px; border-color: brown; border-width: 1px;"></span>
+            </h5>
+            <span><img src="{{user.profile.profile_photo.url}}" alt="" style="border-radius: 50%; width:50px; height:50px; border-color: brown; border-width: 1px;padding-left: 200px;"></span>
             <!--  -->
             {% endif %}
             
