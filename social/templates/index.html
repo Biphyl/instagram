@@ -22,6 +22,7 @@
 </head>
 
 <body>
+    {% for image in images %}
 
     <div class="container-fluid">
         {% block content %}
@@ -30,7 +31,6 @@
             <a href="{%url 'upload'%}" class="btn btn-outline-info btn-sm">upload</a>
 
 
-            {% for image in images %}
             <div class="row">
                 <div class=" col-md-3 ">
 
