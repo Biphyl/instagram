@@ -22,10 +22,10 @@
 </head>
 
 <body>
-    {% for image in images %}
 
     <div class="container-fluid">
         {% block content %}
+        {% for image in images %}
         <div class="container">
 
             <a href="{%url 'upload'%}" class="btn btn-outline-info btn-sm">upload</a>
